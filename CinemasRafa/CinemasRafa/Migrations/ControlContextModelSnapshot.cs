@@ -402,15 +402,15 @@ namespace CinemasRafa.Migrations
                         {
                             ID = 3,
                             Action = "Index",
-                            Controller = "Workers",
+                            Controller = "Worker",
                             Label = "Workers"
                         },
                         new
                         {
                             ID = 4,
                             Action = "Index",
-                            Controller = "Customers",
-                            Label = "Customers"
+                            Controller = "Customer",
+                            Label = "Customer"
                         },
                         new
                         {
@@ -490,6 +490,9 @@ namespace CinemasRafa.Migrations
 
                     b.Property<int>("CategoriaId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Director")
                         .HasColumnType("nvarchar(max)");

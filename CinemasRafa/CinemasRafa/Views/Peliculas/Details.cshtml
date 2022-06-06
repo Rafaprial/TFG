@@ -1,72 +1,51 @@
 ﻿@model CinemasRafa.Models.Peliculas
 
-@{
-    ViewData["Title"] = "Details";
-}
-
-<h1>Details</h1>
-
 <div>
-    <h4>Peliculas</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Director)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Director)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Duracion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Duracion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FechaEstreno)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FechaEstreno)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UrlDescarga)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UrlDescarga)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Valoracion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Valoracion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImageUrl)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Categoria)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Categoria.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Pegi)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Pegi.Id)
-        </dd>
-    </dl>
+     <div class="card container pt-4">
+            <div class="card-header bg-primary text-light ml-0  row ">
+                <div class="col-12 col-md-6">
+                    <h1 class="text-white-50">@Model.Nombre</h1>
+                    <p class="text-warning">by @Model.Director</p>
+                </div>
+                <div class="col-12 col-md-6 text-end pt-4">
+                    <span class="badge bg-danger pt-2" style="height:30px;">@Model.Pegi.EdadMin</span>
+                    <span class="badge bg-warning pt-2" style="height:30px;">@Model.Categoria.Name</span>
+                </div>
+            </div>
+            <div class="card-body row container">
+                <div class="container rounded p-2">
+                    <div class="row">
+                        <div class="col-8 col-lg-8">
+
+                            <div class="row pl-2">
+                                <h5 class="text-muted">Duracion : @Model.Duracion min</h5>
+                            </div>                            
+                            <div class="row pl-2">
+                                <h5 class="text-muted">Año de Estreno : @Model.FechaEstreno.Year</h5>
+                            </div>
+
+                            <div class="row mt-3 mb-3 pl-2">
+                                <p>@Model.Descripcion</p>
+                            </div>
+                            <a class="btn btn-success" href="@Model.UrlDescarga">Descargar <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+  <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+</svg></a>
+                        </div>
+                        <div class="col-12 col-lg-3 offset-lg-1 text-center">
+                            <img src="@Model.ImageUrl" width="90%" height="auto" class="rounded" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+
+                        <a class="btn btn-secondary" asp-action="Index">Volver</a>
+
+                </div>
+            </div>
+        </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+

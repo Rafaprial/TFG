@@ -1,83 +1,46 @@
-﻿@model IEnumerable<CinemasRafa.Models.Peliculas>
+﻿
+@using Microsoft.AspNetCore.Http
+@model IEnumerable<CinemasRafa.Models.Peliculas>
 
 @{
     ViewData["Title"] = "Index";
+
 }
 
-<h1>Index</h1>
+Peliculas
+<div class="row pb-3">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Director)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Duracion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaEstreno)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UrlDescarga)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Valoracion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Categoria)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pegi)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
 @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Director)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Duracion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaEstreno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UrlDescarga)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Valoracion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageUrl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Categoria.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pegi.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+	<div class="col-lg-3 col-md-6">
+			<div class="row p-2">
+				<div class="col-12 p-1" style="border:1px solid #008cba; border-radius: 5px;">
+					<div class="card">
+						<img src="@item.ImageUrl" class="card-img-top rounded" style="width:auto; height:410px; border:1px solid #bbb;"/>
+
+						<div class="card-body">
+						<div class="pl-1">
+							<p class="card-title h5 text-primary">@item.Nombre</p>
+							<p class="card-title text-info">by <b>@item.Director</b></p>
+						</div>
+
+						</div>
+					</div>
+					<div>
+						<a asp-action="Details" class="btn btn-primary form-control" asp-route-id="@item.Id">
+							Detalles <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+</svg>  |  Descargar <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+  <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+</svg>
+						</a>
+					</div>
+				</div> 
+			</div>
+</div>
+		
+
 }
-    </tbody>
-</table>
+
+</div>

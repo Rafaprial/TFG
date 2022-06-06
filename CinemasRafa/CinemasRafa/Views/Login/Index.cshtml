@@ -14,25 +14,32 @@
                 <form class="login-form" method="get" asp-action="Login">
                     <div class="form-group">
                         <label class="text-uppercase">Username</label>
+                        </br>
                         <input type="text" class="form-control" placeholder="" asp-for="Username">
                     </div>
+                    </br>
                     <div class="form-group">
                         <label for="exampleInputPassword1" class="text-uppercase">Password</label>
+                        </br>
                         <input type="password" class="form-control" placeholder="" asp-for="Password">
                     </div>
+                    </br>
                     <div class="form-group">
                         <input type="submit" name="submit" class="btn btn-primary" value="Login"/>
                     </div>
                     <div class="container-fluid">
+                        </br>
                         <div style="display: flex">
-                            <p class="">¿Eres un profesor?</p>
-                            <a href="WorkerDTOs/Create">Registrate</a>
+                            
+                            <a href="WorkerDTOs/Create">Registrar Trabajador</a>
                         </div>
+                        </br>
                         <div style="display: flex">
-                            <p class="">¿Eres un alumno?</p>
+                            
                             <a href="CustomerDTOs/Create">Registrate</a>
                         </div>
                     </div>
+                    </br>
                     <div>
                         <a href="Recuperaciones">¿Has olvidado la contrasña?</a>
                     </div>

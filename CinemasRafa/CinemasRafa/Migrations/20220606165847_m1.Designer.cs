@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CinemasRafa.Migrations
 {
     [DbContext(typeof(ControlContext))]
-    [Migration("20220606082044_m1")]
+    [Migration("20220606165847_m1")]
     partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

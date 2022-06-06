@@ -124,16 +124,16 @@ namespace CinemasRafa.Data
                 new Menu
                 {
                     ID = 3,
-                    Controller = "Workers",
+                    Controller = "Worker",
                     Action = "Index",
                     Label = "Workers"
                 }, 
                 new Menu
                 {
                     ID = 4,
-                    Controller = "Customers",
+                    Controller = "Customer",
                     Action = "Index",
-                    Label = "Customers"
+                    Label = "Customer"
                 }, 
                 new Menu
                 {
