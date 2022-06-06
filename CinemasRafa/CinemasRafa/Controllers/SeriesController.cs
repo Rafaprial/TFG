@@ -10,22 +10,23 @@ using CinemasRafa.Models;
 
 namespace CinemasRafa.Controllers
 {
-    public class ComidasController : Controller
+    public class SeriesController : Controller
     {
         private readonly ControlContext _context;
 
-        public ComidasController(ControlContext context)
+        public SeriesController(ControlContext context)
         {
             _context = context;
         }
 
-        // GET: Comidas
+        // GET: Series
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Comida.ToListAsync());
+            var controlContext = _context.Serie.Include(s => s.Categoria).Include(s => s.Pegi);
+            return View(await controlContext.ToListAsync());
         }
 
-        // GET: Comidas/Details/5
+        // GET: Series/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +34,45 @@ namespace CinemasRafa.Controllers
                 return NotFound();
             }
 
-            var comida = await _context.Comida
+            var series = await _context.Serie
+                .Include(s => s.Categoria)
+                .Include(s => s.Pegi)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (comida == null)
+            if (series == null)
             {
                 return NotFound();
             }
 
-            return View(comida);
+            return View(series);
         }
 
-        // GET: Comidas/Create
+        // GET: Series/Create
         public IActionResult Create()
         {
+            ViewData["CategoriaId"] = new SelectList(_context.Categoria, "Id", "Id");
+            ViewData["PegiId"] = new SelectList(_context.Pegi, "Id", "Id");
             return View();
         }
 
-        // POST: Comidas/Create
+        // POST: Series/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Precio,Valoraciones")] Comida comida)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,Director,Temporada,FechaEstreno,HaTerminado,UrlDescarga,Valoracion,ImageUrl,CategoriaId,PegiId")] Series series)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(comida);
+                _context.Add(series);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(comida);
+            ViewData["CategoriaId"] = new SelectList(_context.Categoria, "Id", "Id", series.CategoriaId);
+            ViewData["PegiId"] = new SelectList(_context.Pegi, "Id", "Id", series.PegiId);
+            return View(series);
         }
 
-        // GET: Comidas/Edit/5
+        // GET: Series/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +80,24 @@ namespace CinemasRafa.Controllers
                 return NotFound();
             }
 
-            var comida = await _context.Comida.FindAsync(id);
-            if (comida == null)
+            var series = await _context.Serie.FindAsync(id);
+            if (series == null)
             {
                 return NotFound();
             }
-            return View(comida);
+            ViewData["CategoriaId"] = new SelectList(_context.Categoria, "Id", "Id", series.CategoriaId);
+            ViewData["PegiId"] = new SelectList(_context.Pegi, "Id", "Id", series.PegiId);
+            return View(series);
         }
 
-        // POST: Comidas/Edit/5
+        // POST: Series/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Precio,Valoraciones")] Comida comida)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Director,Temporada,FechaEstreno,HaTerminado,UrlDescarga,Valoracion,ImageUrl,CategoriaId,PegiId")] Series series)
         {
-            if (id != comida.Id)
+            if (id != series.Id)
             {
                 return NotFound();
             }
@@ -97,12 +106,12 @@ namespace CinemasRafa.Controllers
             {
                 try
                 {
-                    _context.Update(comida);
+                    _context.Update(series);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ComidaExists(comida.Id))
+                    if (!SeriesExists(series.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +122,12 @@ namespace CinemasRafa.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(comida);
+            ViewData["CategoriaId"] = new SelectList(_context.Categoria, "Id", "Id", series.CategoriaId);
+            ViewData["PegiId"] = new SelectList(_context.Pegi, "Id", "Id", series.PegiId);
+            return View(series);
         }
 
-        // GET: Comidas/Delete/5
+        // GET: Series/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +135,32 @@ namespace CinemasRafa.Controllers
                 return NotFound();
             }
 
-            var comida = await _context.Comida
+            var series = await _context.Serie
+                .Include(s => s.Categoria)
+                .Include(s => s.Pegi)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (comida == null)
+            if (series == null)
             {
                 return NotFound();
             }
 
-            return View(comida);
+            return View(series);
         }
 
-        // POST: Comidas/Delete/5
+        // POST: Series/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var comida = await _context.Comida.FindAsync(id);
-            _context.Comida.Remove(comida);
+            var series = await _context.Serie.FindAsync(id);
+            _context.Serie.Remove(series);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ComidaExists(int id)
+        private bool SeriesExists(int id)
         {
-            return _context.Comida.Any(e => e.Id == id);
+            return _context.Serie.Any(e => e.Id == id);
         }
     }
 }

@@ -40,21 +40,6 @@ namespace CinemasRafa.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Comida",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Precio = table.Column<double>(type: "float", nullable: false),
-                    Valoraciones = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Comida", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "CustomerDto",
                 columns: table => new
                 {
@@ -147,7 +132,8 @@ namespace CinemasRafa.Migrations
                     Director = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Duracion = table.Column<int>(type: "int", nullable: false),
                     FechaEstreno = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Precio = table.Column<double>(type: "float", nullable: false),
+                    UrlDescarga = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Valoracion = table.Column<double>(type: "float", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CategoriaId = table.Column<int>(type: "int", nullable: false),
                     PegiId = table.Column<int>(type: "int", nullable: false)
@@ -163,6 +149,40 @@ namespace CinemasRafa.Migrations
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Peliculas_Pegi_PegiId",
+                        column: x => x.PegiId,
+                        principalTable: "Pegi",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Serie",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Director = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Temporada = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FechaEstreno = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    HaTerminado = table.Column<bool>(type: "bit", nullable: false),
+                    UrlDescarga = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Valoracion = table.Column<double>(type: "float", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CategoriaId = table.Column<int>(type: "int", nullable: false),
+                    PegiId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Serie", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Serie_Categoria_CategoriaId",
+                        column: x => x.CategoriaId,
+                        principalTable: "Categoria",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Serie_Pegi_PegiId",
                         column: x => x.PegiId,
                         principalTable: "Pegi",
                         principalColumn: "Id",
@@ -299,7 +319,7 @@ namespace CinemasRafa.Migrations
                     { 7, "Index", "Roles", "Roles" },
                     { 8, "Index", "Pegis", "Pegis" },
                     { 9, "Index", "Peliculas", "Peliculas" },
-                    { 10, "Index", "Comidas", "Comidas" },
+                    { 10, "Index", "Series", "Series" },
                     { 11, "Index", "Categorias", "Categorias" }
                 });
 
@@ -320,10 +340,10 @@ namespace CinemasRafa.Migrations
                 {
                     { 1, true, "admin1@hotmail.com", "QQBsAHQAYQBpAHIAMQAyADMAJAAlAA==", 1, "admin1" },
                     { 2, false, "admin2@hotmail.com", "QQBsAHQAYQBpAHIAMQAyADMAJAAlAA==", 1, "admin2" },
+                    { 4, false, "customer2@hotmail.com", "QQBsAHQAYQBpAHIAMQAyADMAJAAlAA==", 3, "customert2" },
                     { 3, true, "customer1@hotmail.com", "QQBsAHQAYQBpAHIAMQAyADMAJAAlAA==", 3, "customer1" },
                     { 6, false, "worker2@hotmail.com", "QQBsAHQAYQBpAHIAMQAyADMAJAAlAA==", 2, "worker2" },
-                    { 5, true, "worker1@hotmail.com", "QQBsAHQAYQBpAHIAMQAyADMAJAAlAA==", 2, "worker1" },
-                    { 4, false, "customer2@hotmail.com", "QQBsAHQAYQBpAHIAMQAyADMAJAAlAA==", 3, "customert2" }
+                    { 5, true, "worker1@hotmail.com", "QQBsAHQAYQBpAHIAMQAyADMAJAAlAA==", 2, "worker1" }
                 });
 
             migrationBuilder.InsertData(
@@ -338,6 +358,7 @@ namespace CinemasRafa.Migrations
                     { 12, 4, 2 },
                     { 11, 11, 1 },
                     { 10, 10, 1 },
+                    { 9, 9, 1 },
                     { 8, 8, 1 },
                     { 7, 7, 1 },
                     { 6, 6, 1 },
@@ -346,8 +367,8 @@ namespace CinemasRafa.Migrations
                     { 3, 3, 1 },
                     { 2, 2, 1 },
                     { 1, 1, 1 },
-                    { 9, 9, 1 },
-                    { 17, 8, 3 }
+                    { 17, 9, 3 },
+                    { 18, 10, 3 }
                 });
 
             migrationBuilder.InsertData(
@@ -413,6 +434,16 @@ namespace CinemasRafa.Migrations
                 column: "RoleID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Serie_CategoriaId",
+                table: "Serie",
+                column: "CategoriaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Serie_PegiId",
+                table: "Serie",
+                column: "PegiId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Worker_CuentaUsuarioID",
                 table: "Worker",
                 column: "CuentaUsuarioID");
@@ -427,9 +458,6 @@ namespace CinemasRafa.Migrations
                 name: "AdminDto");
 
             migrationBuilder.DropTable(
-                name: "Comida");
-
-            migrationBuilder.DropTable(
                 name: "Customer");
 
             migrationBuilder.DropTable(
@@ -442,19 +470,22 @@ namespace CinemasRafa.Migrations
                 name: "RoleHasMenu");
 
             migrationBuilder.DropTable(
+                name: "Serie");
+
+            migrationBuilder.DropTable(
                 name: "Worker");
 
             migrationBuilder.DropTable(
                 name: "WorkerDto");
 
             migrationBuilder.DropTable(
+                name: "Menu");
+
+            migrationBuilder.DropTable(
                 name: "Categoria");
 
             migrationBuilder.DropTable(
                 name: "Pegi");
-
-            migrationBuilder.DropTable(
-                name: "Menu");
 
             migrationBuilder.DropTable(
                 name: "CuentaUsuario");

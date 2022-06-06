@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IER+70p6iG8S5Vj3SfZWN66r3QeEuSX03PS8wM4IdrtMpuIGzO69iBs0Fh8ou+XgkQeOEAmdt1jKioZxekuI4A==",
+  "dgSpecHash": "zyu1kDozQGEJvx/jQOPk8DubZu9N5adrwOUWxPz3Wc1veg35V8dMOJ5Af9f/XTHVRrA+v6+7IupB9DQ36SHGug==",
   "success": true,
-  "projectFilePath": "D:\\TfgFinal\\CinemasRafa\\CinemasRafa\\CinemasRafa.csproj",
+  "projectFilePath": "C:\\TFG\\CinemasRafa\\CinemasRafa\\CinemasRafa.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rafap\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\rafap\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

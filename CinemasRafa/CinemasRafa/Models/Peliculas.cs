@@ -11,7 +11,8 @@ namespace CinemasRafa.Models
         public string Director { get; set; }
         public int Duracion { get; set; }
         public DateTime FechaEstreno { get; set; }
-        public double Precio { get; set; }
+        public string UrlDescarga { get; set; }
+        public double Valoracion { get; set; }
         [ValidateNever]
         public string ImageUrl { get; set; }
         [Required]

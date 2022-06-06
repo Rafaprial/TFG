@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CinemasRafa.Migrations
 {
     [DbContext(typeof(ControlContext))]
-    [Migration("20220605220554_m1")]
+    [Migration("20220606082044_m1")]
     partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -217,27 +217,6 @@ namespace CinemasRafa.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categoria");
-                });
-
-            modelBuilder.Entity("CinemasRafa.Models.Comida", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Nombre")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Precio")
-                        .HasColumnType("float");
-
-                    b.Property<int>("Valoraciones")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Comida");
                 });
 
             modelBuilder.Entity("CinemasRafa.Models.CuentaUsuario", b =>
@@ -474,8 +453,8 @@ namespace CinemasRafa.Migrations
                         {
                             ID = 10,
                             Action = "Index",
-                            Controller = "Comidas",
-                            Label = "Comidas"
+                            Controller = "Series",
+                            Label = "Series"
                         },
                         new
                         {
@@ -532,7 +511,10 @@ namespace CinemasRafa.Migrations
                     b.Property<int>("PegiId")
                         .HasColumnType("int");
 
-                    b.Property<double>("Precio")
+                    b.Property<string>("UrlDescarga")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Valoracion")
                         .HasColumnType("float");
 
                     b.HasKey("Id");
@@ -711,9 +693,61 @@ namespace CinemasRafa.Migrations
                         new
                         {
                             ID = 17,
-                            MenuID = 8,
+                            MenuID = 9,
+                            RoleID = 3
+                        },
+                        new
+                        {
+                            ID = 18,
+                            MenuID = 10,
                             RoleID = 3
                         });
+                });
+
+            modelBuilder.Entity("CinemasRafa.Models.Series", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CategoriaId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Director")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("FechaEstreno")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("HaTerminado")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PegiId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Temporada")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UrlDescarga")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Valoracion")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoriaId");
+
+                    b.HasIndex("PegiId");
+
+                    b.ToTable("Serie");
                 });
 
             modelBuilder.Entity("CinemasRafa.Models.Worker", b =>
@@ -834,6 +868,25 @@ namespace CinemasRafa.Migrations
                     b.Navigation("Menu");
 
                     b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("CinemasRafa.Models.Series", b =>
+                {
+                    b.HasOne("CinemasRafa.Models.Categoria", "Categoria")
+                        .WithMany()
+                        .HasForeignKey("CategoriaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CinemasRafa.Models.Pegi", "Pegi")
+                        .WithMany()
+                        .HasForeignKey("PegiId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Categoria");
+
+                    b.Navigation("Pegi");
                 });
 
             modelBuilder.Entity("CinemasRafa.Models.Worker", b =>

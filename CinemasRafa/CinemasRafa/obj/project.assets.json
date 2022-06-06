@@ -7149,19 +7149,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rafap\\.nuget\\packages\\": {}
+    "C:\\Users\\rafap\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\TfgFinal\\CinemasRafa\\CinemasRafa\\CinemasRafa.csproj",
+      "projectUniqueName": "C:\\TFG\\CinemasRafa\\CinemasRafa\\CinemasRafa.csproj",
       "projectName": "CinemasRafa",
-      "projectPath": "D:\\TfgFinal\\CinemasRafa\\CinemasRafa\\CinemasRafa.csproj",
+      "projectPath": "C:\\TFG\\CinemasRafa\\CinemasRafa\\CinemasRafa.csproj",
       "packagesPath": "C:\\Users\\rafap\\.nuget\\packages\\",
-      "outputPath": "D:\\TfgFinal\\CinemasRafa\\CinemasRafa\\obj\\",
+      "outputPath": "C:\\TFG\\CinemasRafa\\CinemasRafa\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\rafap\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7224,7 +7229,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

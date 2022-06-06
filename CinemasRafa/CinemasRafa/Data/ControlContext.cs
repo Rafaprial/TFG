@@ -19,7 +19,7 @@ namespace CinemasRafa.Data
         public DbSet<Customer> Customer { get; set; }
         public DbSet<Worker> Worker { get; set; }
         public DbSet<CinemasRafa.Models.Categoria> Categoria { get; set; }
-        public DbSet<CinemasRafa.Models.Comida> Comida { get; set; }
+        public DbSet<CinemasRafa.Models.Series> Serie { get; set; }
         public DbSet<CinemasRafa.Models.Pegi> Pegi { get; set; }
         public DbSet<CinemasRafa.Models.Peliculas> Peliculas { get; set; }
 
@@ -173,9 +173,9 @@ namespace CinemasRafa.Data
                 new Menu
                 {
                     ID = 10,
-                    Controller = "Comidas",
+                    Controller = "Series",
                     Action = "Index",
-                    Label = "Comidas"
+                    Label = "Series"
                 }, 
                 new Menu
                 {
@@ -286,7 +286,13 @@ namespace CinemasRafa.Data
                 new RoleHasMenu
                 {
                     ID = 17,
-                    MenuID = 8,
+                    MenuID = 9,
+                    RoleID = 3
+                },
+                new RoleHasMenu
+                {
+                    ID = 18,
+                    MenuID = 10,
                     RoleID = 3
                 }
             );
@@ -350,11 +356,11 @@ namespace CinemasRafa.Data
                 }
             );
         }
-/*
+
         public DbSet<CinemasRafa.DTOs.AdminDto> AdminDto { get; set; }
 
         public DbSet<CinemasRafa.DTOs.CustomerDto> CustomerDto { get; set; }
 
-        public DbSet<CinemasRafa.DTOs.WorkerDto> WorkerDto { get; set; }*/
+        public DbSet<CinemasRafa.DTOs.WorkerDto> WorkerDto { get; set; }
     }
 }

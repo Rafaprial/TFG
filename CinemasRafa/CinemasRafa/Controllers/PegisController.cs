@@ -116,7 +116,7 @@ namespace CinemasRafa.Controllers
             return View(pegi);
         }
 
-        // GET: Pegis/Delete/5
+/*        // GET: Pegis/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -144,7 +144,7 @@ namespace CinemasRafa.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
+*/
         private bool PegiExists(int id)
         {
             return _context.Pegi.Any(e => e.Id == id);

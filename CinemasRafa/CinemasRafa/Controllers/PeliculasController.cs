@@ -59,7 +59,7 @@ namespace CinemasRafa.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Director,Duracion,FechaEstreno,Precio,ImageUrl,CategoriaId,PegiId")] Peliculas peliculas)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,Director,Duracion,FechaEstreno,UrlDescarga,Valoracion,ImageUrl,CategoriaId,PegiId")] Peliculas peliculas)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +95,7 @@ namespace CinemasRafa.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Director,Duracion,FechaEstreno,Precio,ImageUrl,CategoriaId,PegiId")] Peliculas peliculas)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Director,Duracion,FechaEstreno,UrlDescarga,Valoracion,ImageUrl,CategoriaId,PegiId")] Peliculas peliculas)
         {
             if (id != peliculas.Id)
             {

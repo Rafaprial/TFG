@@ -117,7 +117,7 @@ namespace CinemasRafa.Controllers
         }
 
         // GET: Categorias/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+/*        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -143,7 +143,7 @@ namespace CinemasRafa.Controllers
             _context.Categoria.Remove(categoria);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }
+        }*/
 
         private bool CategoriaExists(int id)
         {
