@@ -9,7 +9,8 @@ namespace CinemasRafa.Models
         public int Id { get; set; }
         public string Nombre { get; set; }
         public string Director { get; set; }
-        public string Temporada { get; set; }
+        public string Descripcion { get; set; }
+        public int Temporada { get; set; }
         public DateTime FechaEstreno { get; set; }
         public bool HaTerminado { get; set; }
         public string UrlDescarga { get; set; }

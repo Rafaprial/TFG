@@ -1,0 +1,58 @@
+﻿@model IEnumerable<CinemasRafa.Models.Series>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <a asp-controller="Series" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Director)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pegi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Temporada)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Director)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pegi.EdadMin)
+            </td>
+            <td>
+                @Html.DisplayNameFor(modelItem => item.Temporada)
+            </td>
+            <td>
+                <a asp-controller="Series" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-controller="Series" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-controller="Series" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

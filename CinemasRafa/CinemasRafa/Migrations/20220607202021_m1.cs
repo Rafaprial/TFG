@@ -164,7 +164,8 @@ namespace CinemasRafa.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Director = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Temporada = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Temporada = table.Column<int>(type: "int", nullable: false),
                     FechaEstreno = table.Column<DateTime>(type: "datetime2", nullable: false),
                     HaTerminado = table.Column<bool>(type: "bit", nullable: false),
                     UrlDescarga = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -323,17 +324,19 @@ namespace CinemasRafa.Migrations
                 columns: new[] { "ID", "Action", "Controller", "Label" },
                 values: new object[,]
                 {
+                    { 13, "Index", "AdminControlSeries", "Control Series" },
+                    { 12, "Index", "AdminControlPeliculas", "Control Peliculas" },
                     { 11, "Index", "Categorias", "Categorias" },
                     { 10, "Index", "Series", "Series" },
                     { 9, "Index", "Peliculas", "Peliculas" },
-                    { 8, "Index", "Pegis", "Pegis" },
-                    { 6, "Index", "RoleHasMenus", "RoleMenus" },
                     { 7, "Index", "Roles", "Roles" },
+                    { 8, "Index", "Pegis", "Pegis" },
+                    { 5, "Index", "Menus", "Menus" },
                     { 4, "Index", "Customer", "Customer" },
                     { 3, "Index", "Worker", "Workers" },
                     { 2, "Index", "Admins", "Administradores" },
                     { 1, "Index", "CuentaUsuarios", "Cuentas" },
-                    { 5, "Index", "Menus", "Menus" }
+                    { 6, "Index", "RoleHasMenus", "RoleMenus" }
                 });
 
             migrationBuilder.InsertData(
@@ -363,9 +366,9 @@ namespace CinemasRafa.Migrations
                 columns: new[] { "ID", "Active", "Email", "Password", "RoleID", "Username" },
                 values: new object[,]
                 {
+                    { 4, false, "customer2@hotmail.com", "QQBsAHQAYQBpAHIAMQAyADMAJAAlAA==", 3, "customert2" },
                     { 1, true, "admin1@hotmail.com", "QQBsAHQAYQBpAHIAMQAyADMAJAAlAA==", 1, "admin1" },
                     { 2, false, "admin2@hotmail.com", "QQBsAHQAYQBpAHIAMQAyADMAJAAlAA==", 1, "admin2" },
-                    { 4, false, "customer2@hotmail.com", "QQBsAHQAYQBpAHIAMQAyADMAJAAlAA==", 3, "customert2" },
                     { 3, true, "customer1@hotmail.com", "QQBsAHQAYQBpAHIAMQAyADMAJAAlAA==", 3, "customer1" },
                     { 6, false, "worker2@hotmail.com", "QQBsAHQAYQBpAHIAMQAyADMAJAAlAA==", 2, "worker2" },
                     { 5, true, "worker1@hotmail.com", "QQBsAHQAYQBpAHIAMQAyADMAJAAlAA==", 2, "worker1" }
@@ -381,14 +384,16 @@ namespace CinemasRafa.Migrations
                 columns: new[] { "ID", "MenuID", "RoleID" },
                 values: new object[,]
                 {
+                    { 21, 13, 2 },
+                    { 19, 12, 2 },
                     { 16, 11, 2 },
-                    { 15, 10, 2 },
-                    { 14, 9, 2 },
                     { 13, 8, 2 },
                     { 12, 4, 2 },
+                    { 15, 10, 2 },
+                    { 14, 9, 2 },
+                    { 22, 13, 1 },
                     { 11, 11, 1 },
-                    { 10, 10, 1 },
-                    { 9, 9, 1 },
+                    { 17, 9, 3 },
                     { 8, 8, 1 },
                     { 7, 7, 1 },
                     { 6, 6, 1 },
@@ -397,9 +402,16 @@ namespace CinemasRafa.Migrations
                     { 3, 3, 1 },
                     { 2, 2, 1 },
                     { 1, 1, 1 },
-                    { 17, 9, 3 },
+                    { 10, 10, 1 },
+                    { 9, 9, 1 },
+                    { 20, 12, 1 },
                     { 18, 10, 3 }
                 });
+
+            migrationBuilder.InsertData(
+                table: "Serie",
+                columns: new[] { "Id", "CategoriaId", "Descripcion", "Director", "FechaEstreno", "HaTerminado", "ImageUrl", "Nombre", "PegiId", "Temporada", "UrlDescarga", "Valoracion" },
+                values: new object[] { 1, 1, "La serie sigue las múltiples tramas de la saga Canción de hielo y fuego.2​ Comienza cuando el Rey Robert Baratheon (Mark Addy) le pide a su viejo amigo Ned Stark (Sean Bean) que realice la función de nuevo consejero real (cargo conocido como la Mano del Rey). La esposa de Ned, Catelyn (Michelle Fairley) recibe una carta de su hermana, Lysa (Kate Dickie) que le da razones para creer que la Casa Lannister, a la cual pertenece Cersei, la esposa del rey, está involucrada en la muerte de la anterior Mano del Rey. Ned debe viajar al sur con el Rey para descubrir el asesino de la Mano del Rey muerto, Jon Arryn (John Standing) y a la misma vez proteger a su familia de los Lannister. Mientras descubre las razones detrás de la muerte de Jon, desentierra el oscuro secreto concerniente a los Lannister que el propio Arryn murió tratando de revelar. ", "David Benioff", new DateTime(2022, 6, 7, 0, 0, 0, 0, DateTimeKind.Local), true, "https://m.media-amazon.com/images/I/91kI5AXwz9L._SY445_.jpg", "Juego de tronos", 2, 1, "https://m.media-amazon.com/images/I/91kI5AXwz9L._SY445_.jpg", 5.0 });
 
             migrationBuilder.InsertData(
                 table: "Admin",

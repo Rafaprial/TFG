@@ -487,6 +487,20 @@ namespace CinemasRafa.Migrations
                             Action = "Index",
                             Controller = "Categorias",
                             Label = "Categorias"
+                        },
+                        new
+                        {
+                            ID = 12,
+                            Action = "Index",
+                            Controller = "AdminControlPeliculas",
+                            Label = "Control Peliculas"
+                        },
+                        new
+                        {
+                            ID = 13,
+                            Action = "Index",
+                            Controller = "AdminControlSeries",
+                            Label = "Control Series"
                         });
                 });
 
@@ -672,6 +686,18 @@ namespace CinemasRafa.Migrations
                     b.HasData(
                         new
                         {
+                            ID = 9,
+                            MenuID = 9,
+                            RoleID = 1
+                        },
+                        new
+                        {
+                            ID = 10,
+                            MenuID = 10,
+                            RoleID = 1
+                        },
+                        new
+                        {
                             ID = 1,
                             MenuID = 1,
                             RoleID = 1
@@ -720,33 +746,9 @@ namespace CinemasRafa.Migrations
                         },
                         new
                         {
-                            ID = 9,
-                            MenuID = 9,
-                            RoleID = 1
-                        },
-                        new
-                        {
-                            ID = 10,
-                            MenuID = 10,
-                            RoleID = 1
-                        },
-                        new
-                        {
                             ID = 11,
                             MenuID = 11,
                             RoleID = 1
-                        },
-                        new
-                        {
-                            ID = 12,
-                            MenuID = 4,
-                            RoleID = 2
-                        },
-                        new
-                        {
-                            ID = 13,
-                            MenuID = 8,
-                            RoleID = 2
                         },
                         new
                         {
@@ -758,6 +760,18 @@ namespace CinemasRafa.Migrations
                         {
                             ID = 15,
                             MenuID = 10,
+                            RoleID = 2
+                        },
+                        new
+                        {
+                            ID = 12,
+                            MenuID = 4,
+                            RoleID = 2
+                        },
+                        new
+                        {
+                            ID = 13,
+                            MenuID = 8,
                             RoleID = 2
                         },
                         new
@@ -777,6 +791,30 @@ namespace CinemasRafa.Migrations
                             ID = 18,
                             MenuID = 10,
                             RoleID = 3
+                        },
+                        new
+                        {
+                            ID = 19,
+                            MenuID = 12,
+                            RoleID = 2
+                        },
+                        new
+                        {
+                            ID = 20,
+                            MenuID = 12,
+                            RoleID = 1
+                        },
+                        new
+                        {
+                            ID = 21,
+                            MenuID = 13,
+                            RoleID = 2
+                        },
+                        new
+                        {
+                            ID = 22,
+                            MenuID = 13,
+                            RoleID = 1
                         });
                 });
 
@@ -789,6 +827,9 @@ namespace CinemasRafa.Migrations
 
                     b.Property<int>("CategoriaId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Director")
                         .HasColumnType("nvarchar(max)");
@@ -808,8 +849,8 @@ namespace CinemasRafa.Migrations
                     b.Property<int>("PegiId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Temporada")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Temporada")
+                        .HasColumnType("int");
 
                     b.Property<string>("UrlDescarga")
                         .HasColumnType("nvarchar(max)");
@@ -824,6 +865,23 @@ namespace CinemasRafa.Migrations
                     b.HasIndex("PegiId");
 
                     b.ToTable("Serie");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoriaId = 1,
+                            Descripcion = "La serie sigue las múltiples tramas de la saga Canción de hielo y fuego.2​ Comienza cuando el Rey Robert Baratheon (Mark Addy) le pide a su viejo amigo Ned Stark (Sean Bean) que realice la función de nuevo consejero real (cargo conocido como la Mano del Rey). La esposa de Ned, Catelyn (Michelle Fairley) recibe una carta de su hermana, Lysa (Kate Dickie) que le da razones para creer que la Casa Lannister, a la cual pertenece Cersei, la esposa del rey, está involucrada en la muerte de la anterior Mano del Rey. Ned debe viajar al sur con el Rey para descubrir el asesino de la Mano del Rey muerto, Jon Arryn (John Standing) y a la misma vez proteger a su familia de los Lannister. Mientras descubre las razones detrás de la muerte de Jon, desentierra el oscuro secreto concerniente a los Lannister que el propio Arryn murió tratando de revelar. ",
+                            Director = "David Benioff",
+                            FechaEstreno = new DateTime(2022, 6, 7, 0, 0, 0, 0, DateTimeKind.Local),
+                            HaTerminado = true,
+                            ImageUrl = "https://m.media-amazon.com/images/I/91kI5AXwz9L._SY445_.jpg",
+                            Nombre = "Juego de tronos",
+                            PegiId = 2,
+                            Temporada = 1,
+                            UrlDescarga = "https://m.media-amazon.com/images/I/91kI5AXwz9L._SY445_.jpg",
+                            Valoracion = 5.0
+                        });
                 });
 
             modelBuilder.Entity("CinemasRafa.Models.Worker", b =>

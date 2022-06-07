@@ -23,9 +23,19 @@
                         }
                         @foreach (Menu menu in Utils.Menus)
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="@menu.Controller" asp-action="@menu.Action">@menu.Label</a>
-                            </li>
+                            if (menu.ID > 11)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="@menu.Controller" asp-action="@menu.Action">@menu.Label</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="@menu.Controller" asp-action="@menu.Action">@menu.Label</a>
+                                </li>
+                            }
+
                         }
                         @if (Utils.Menus.Count > 0)
                         {

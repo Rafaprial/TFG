@@ -183,7 +183,22 @@ namespace CinemasRafa.Data
                     Controller = "Categorias",
                     Action = "Index",
                     Label = "Categorias"
+                },
+                new Menu
+                {
+                    ID = 12,
+                    Controller = "AdminControlPeliculas",
+                    Action = "Index",
+                    Label = "Control Peliculas"
+                },
+                new Menu
+                {
+                    ID = 13,
+                    Controller = "AdminControlSeries",
+                    Action = "Index",
+                    Label = "Control Series"
                 }
+
             );
 
             modelBuilder.Entity<Peliculas>().HasData(
@@ -200,6 +215,22 @@ namespace CinemasRafa.Data
                 ImageUrl = "https://es.web.img2.acsta.net/r_1920_1080/pictures/21/12/01/12/07/0243323.jpg",
                 CategoriaId = 1,
                 PegiId = 2
+            });
+            modelBuilder.Entity<Series>().HasData(
+            new Series
+            {
+                Id = 1,
+                Nombre = "Juego de tronos",
+                Descripcion = "La serie sigue las múltiples tramas de la saga Canción de hielo y fuego.2​ Comienza cuando el Rey Robert Baratheon (Mark Addy) le pide a su viejo amigo Ned Stark (Sean Bean) que realice la función de nuevo consejero real (cargo conocido como la Mano del Rey). La esposa de Ned, Catelyn (Michelle Fairley) recibe una carta de su hermana, Lysa (Kate Dickie) que le da razones para creer que la Casa Lannister, a la cual pertenece Cersei, la esposa del rey, está involucrada en la muerte de la anterior Mano del Rey. Ned debe viajar al sur con el Rey para descubrir el asesino de la Mano del Rey muerto, Jon Arryn (John Standing) y a la misma vez proteger a su familia de los Lannister. Mientras descubre las razones detrás de la muerte de Jon, desentierra el oscuro secreto concerniente a los Lannister que el propio Arryn murió tratando de revelar. ",
+                Director = "David Benioff",
+                Temporada = 1,
+                FechaEstreno = System.DateTime.Today,
+                UrlDescarga = "https://m.media-amazon.com/images/I/91kI5AXwz9L._SY445_.jpg",
+                Valoracion = 5,
+                ImageUrl = "https://m.media-amazon.com/images/I/91kI5AXwz9L._SY445_.jpg",
+                CategoriaId = 1,
+                PegiId = 2,
+                HaTerminado = true,
             });
             modelBuilder.Entity<Pegi>().HasData(
             new Pegi
@@ -258,6 +289,18 @@ namespace CinemasRafa.Data
             modelBuilder.Entity<RoleHasMenu>().HasData(
                 new RoleHasMenu
                 {
+                ID = 9,
+                MenuID = 9,
+                RoleID = 1
+                },
+                new RoleHasMenu
+                {
+                    ID = 10,
+                    MenuID = 10,
+                    RoleID = 1
+                },
+                new RoleHasMenu
+                {
                     ID = 1,
                     MenuID = 1,
                     RoleID = 1
@@ -304,35 +347,12 @@ namespace CinemasRafa.Data
                     MenuID = 8,
                     RoleID = 1
                 },
-                new RoleHasMenu
-                {
-                    ID = 9,
-                    MenuID = 9,
-                    RoleID = 1
-                },
-                new RoleHasMenu
-                {
-                    ID = 10,
-                    MenuID = 10,
-                    RoleID = 1
-                },
+
                 new RoleHasMenu
                 {
                     ID = 11,
                     MenuID = 11,
                     RoleID = 1
-                },
-                new RoleHasMenu
-                {
-                    ID = 12,
-                    MenuID = 4,
-                    RoleID = 2
-                },
-                new RoleHasMenu
-                {
-                    ID = 13,
-                    MenuID = 8,
-                    RoleID = 2
                 },
                 new RoleHasMenu
                 {
@@ -346,6 +366,19 @@ namespace CinemasRafa.Data
                     MenuID = 10,
                     RoleID = 2
                 },
+                new RoleHasMenu
+                {
+                    ID = 12,
+                    MenuID = 4,
+                    RoleID = 2
+                },
+                new RoleHasMenu
+                {
+                    ID = 13,
+                    MenuID = 8,
+                    RoleID = 2
+                },
+
                 new RoleHasMenu
                 {
                     ID = 16,
@@ -363,6 +396,30 @@ namespace CinemasRafa.Data
                     ID = 18,
                     MenuID = 10,
                     RoleID = 3
+                },
+                new RoleHasMenu
+                {
+                    ID = 19,
+                    MenuID = 12,
+                    RoleID = 2
+                },
+                new RoleHasMenu
+                {
+                    ID = 20,
+                    MenuID = 12,
+                    RoleID = 1
+                },
+                new RoleHasMenu
+                {
+                    ID = 21,
+                    MenuID = 13,
+                    RoleID = 2
+                },
+                new RoleHasMenu
+                {
+                    ID = 22,
+                    MenuID = 13,
+                    RoleID = 1
                 }
             );
 

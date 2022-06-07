@@ -599,3 +599,5 @@ D:\TFG_FINAL\CinemasRafa\CinemasRafa\obj\Debug\net5.0\refint\CinemasRafa.dll
 D:\TFG_FINAL\CinemasRafa\CinemasRafa\obj\Debug\net5.0\CinemasRafa.pdb
 D:\TFG_FINAL\CinemasRafa\CinemasRafa\obj\Debug\net5.0\CinemasRafa.genruntimeconfig.cache
 D:\TFG_FINAL\CinemasRafa\CinemasRafa\obj\Debug\net5.0\ref\CinemasRafa.dll
+D:\TFG_FINAL\CinemasRafa\CinemasRafa\obj\Debug\net5.0\Razor\Views\AdminControlSeries\Index.cshtml.g.cs
+D:\TFG_FINAL\CinemasRafa\CinemasRafa\obj\Debug\net5.0\Razor\Views\AdminControlPeliculas\Index.cshtml.g.cs
