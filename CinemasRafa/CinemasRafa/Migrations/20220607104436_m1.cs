@@ -129,6 +129,7 @@ namespace CinemasRafa.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Director = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Duracion = table.Column<int>(type: "int", nullable: false),
                     FechaEstreno = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -306,21 +307,45 @@ namespace CinemasRafa.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Categoria",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Ficcion" },
+                    { 2, "Accion" },
+                    { 3, "Romance" },
+                    { 4, "Thriller" },
+                    { 5, "Terror" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "Menu",
                 columns: new[] { "ID", "Action", "Controller", "Label" },
                 values: new object[,]
                 {
-                    { 1, "Index", "CuentaUsuarios", "Cuentas" },
-                    { 2, "Index", "Admins", "Administradores" },
-                    { 3, "Index", "Workers", "Workers" },
-                    { 4, "Index", "Customers", "Customers" },
-                    { 5, "Index", "Menus", "Menus" },
+                    { 11, "Index", "Categorias", "Categorias" },
+                    { 10, "Index", "Series", "Series" },
+                    { 9, "Index", "Peliculas", "Peliculas" },
+                    { 8, "Index", "Pegis", "Pegis" },
                     { 6, "Index", "RoleHasMenus", "RoleMenus" },
                     { 7, "Index", "Roles", "Roles" },
-                    { 8, "Index", "Pegis", "Pegis" },
-                    { 9, "Index", "Peliculas", "Peliculas" },
-                    { 10, "Index", "Series", "Series" },
-                    { 11, "Index", "Categorias", "Categorias" }
+                    { 4, "Index", "Customer", "Customer" },
+                    { 3, "Index", "Worker", "Workers" },
+                    { 2, "Index", "Admins", "Administradores" },
+                    { 1, "Index", "CuentaUsuarios", "Cuentas" },
+                    { 5, "Index", "Menus", "Menus" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Pegi",
+                columns: new[] { "Id", "EdadMin", "PegiEdad" },
+                values: new object[,]
+                {
+                    { 1, "Pegi 3", 3 },
+                    { 5, "Pegi 7", 7 },
+                    { 2, "Pegi 12", 12 },
+                    { 3, "Pegi 16", 16 },
+                    { 4, "Pegi 18", 18 }
                 });
 
             migrationBuilder.InsertData(
@@ -328,8 +353,8 @@ namespace CinemasRafa.Migrations
                 columns: new[] { "ID", "Enabled", "RoleDescription", "RoleName" },
                 values: new object[,]
                 {
-                    { 1, true, "Admin rol", "Admin" },
                     { 2, true, "Worker rol", "Worker" },
+                    { 1, true, "Admin rol", "Admin" },
                     { 3, true, "Customer rol", "Customer" }
                 });
 
@@ -345,6 +370,11 @@ namespace CinemasRafa.Migrations
                     { 6, false, "worker2@hotmail.com", "QQBsAHQAYQBpAHIAMQAyADMAJAAlAA==", 2, "worker2" },
                     { 5, true, "worker1@hotmail.com", "QQBsAHQAYQBpAHIAMQAyADMAJAAlAA==", 2, "worker1" }
                 });
+
+            migrationBuilder.InsertData(
+                table: "Peliculas",
+                columns: new[] { "Id", "CategoriaId", "Descripcion", "Director", "Duracion", "FechaEstreno", "ImageUrl", "Nombre", "PegiId", "UrlDescarga", "Valoracion" },
+                values: new object[] { 1, 1, "Por primera vez en la historia cinematográfica de Spider-Man, nuestro héroe, vecino y amigo es desenmascarado, y por tanto, ya no es capaz de separar su vida normal de los enormes riesgos que conlleva ser un superhéroe. Cuando pide ayuda al Doctor Strange, los riesgos pasan a ser aún más peligrosos, obligándole a descubrir lo que realmente significa ser él. Secuela de 'Spider-Man: Far From Home'. ", "Jon Watts", 148, new DateTime(2022, 6, 7, 0, 0, 0, 0, DateTimeKind.Local), "https://es.web.img2.acsta.net/r_1920_1080/pictures/21/12/01/12/07/0243323.jpg", "Spider-Man: No Way Home", 2, "https://es.web.img3.acsta.net/c_200_200/pictures/15/11/24/16/53/595385.jpg", 5.0 });
 
             migrationBuilder.InsertData(
                 table: "RoleHasMenu",

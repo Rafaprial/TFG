@@ -48,6 +48,7 @@ namespace CinemasRafa.Controllers
             return View(peliculas);
         }
         [ServiceFilter(typeof(AdminFilter))]
+        [ServiceFilter(typeof(WorkerFilter))]
         // GET: Peliculas/Create
         public IActionResult Create()
         {

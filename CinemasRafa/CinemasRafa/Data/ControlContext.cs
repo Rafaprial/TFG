@@ -186,6 +186,75 @@ namespace CinemasRafa.Data
                 }
             );
 
+            modelBuilder.Entity<Peliculas>().HasData(
+            new Peliculas
+            {
+                Id = 1,
+                Nombre = "Spider-Man: No Way Home",
+                Descripcion = "Por primera vez en la historia cinematográfica de Spider-Man, nuestro héroe, vecino y amigo es desenmascarado, y por tanto, ya no es capaz de separar su vida normal de los enormes riesgos que conlleva ser un superhéroe. Cuando pide ayuda al Doctor Strange, los riesgos pasan a ser aún más peligrosos, obligándole a descubrir lo que realmente significa ser él. Secuela de 'Spider-Man: Far From Home'. ",
+                Director = "Jon Watts",
+                Duracion = 148,
+                FechaEstreno = System.DateTime.Today,
+                UrlDescarga = "https://es.web.img3.acsta.net/c_200_200/pictures/15/11/24/16/53/595385.jpg",
+                Valoracion = 5,
+                ImageUrl = "https://es.web.img2.acsta.net/r_1920_1080/pictures/21/12/01/12/07/0243323.jpg",
+                CategoriaId = 1,
+                PegiId = 2
+            });
+            modelBuilder.Entity<Pegi>().HasData(
+            new Pegi
+            {
+                Id = 1,
+                EdadMin = "Pegi 3",
+                PegiEdad = 3
+            }, new Pegi
+            {
+                Id = 5,
+                EdadMin = "Pegi 7",
+                PegiEdad = 7
+            },
+            new Pegi
+            {
+                Id = 2,
+                EdadMin = "Pegi 12",
+                PegiEdad = 12
+            }, new Pegi
+            {
+                Id = 3,
+                EdadMin = "Pegi 16",
+                PegiEdad = 16
+            }, new Pegi
+            {
+                Id = 4,
+                EdadMin = "Pegi 18",
+                PegiEdad = 18
+            }
+            );
+            modelBuilder.Entity<Categoria>().HasData(
+            new Categoria
+            {
+                Id = 1,
+                Name = "Ficcion"
+            },
+            new Categoria
+            {
+                Id = 2,
+                Name = "Accion"
+            }, new Categoria
+            {
+                Id = 3,
+                Name = "Romance"
+            }, new Categoria
+            {
+                Id = 4,
+                Name = "Thriller"
+            }, new Categoria
+            {
+                Id = 5,
+                Name = "Terror"
+            }
+            );
+
             modelBuilder.Entity<RoleHasMenu>().HasData(
                 new RoleHasMenu
                 {

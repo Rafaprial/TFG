@@ -336,7 +336,6 @@ C:\TFG\CinemasRafa\CinemasRafa\obj\Debug\net5.0\Razor\Views\Admins\Details.cshtm
 C:\TFG\CinemasRafa\CinemasRafa\obj\Debug\net5.0\Razor\Views\Admins\Edit.cshtml.g.cs
 C:\TFG\CinemasRafa\CinemasRafa\obj\Debug\net5.0\Razor\Views\Admins\Index.cshtml.g.cs
 C:\TFG\CinemasRafa\CinemasRafa\obj\Debug\net5.0\Razor\Views\Categorias\Create.cshtml.g.cs
-C:\TFG\CinemasRafa\CinemasRafa\obj\Debug\net5.0\Razor\Views\Categorias\Delete.cshtml.g.cs
 C:\TFG\CinemasRafa\CinemasRafa\obj\Debug\net5.0\Razor\Views\Categorias\Details.cshtml.g.cs
 C:\TFG\CinemasRafa\CinemasRafa\obj\Debug\net5.0\Razor\Views\Categorias\Edit.cshtml.g.cs
 C:\TFG\CinemasRafa\CinemasRafa\obj\Debug\net5.0\Razor\Views\Categorias\Index.cshtml.g.cs
@@ -359,7 +358,6 @@ C:\TFG\CinemasRafa\CinemasRafa\obj\Debug\net5.0\Razor\Views\Menus\Details.cshtml
 C:\TFG\CinemasRafa\CinemasRafa\obj\Debug\net5.0\Razor\Views\Menus\Edit.cshtml.g.cs
 C:\TFG\CinemasRafa\CinemasRafa\obj\Debug\net5.0\Razor\Views\Menus\Index.cshtml.g.cs
 C:\TFG\CinemasRafa\CinemasRafa\obj\Debug\net5.0\Razor\Views\Pegis\Create.cshtml.g.cs
-C:\TFG\CinemasRafa\CinemasRafa\obj\Debug\net5.0\Razor\Views\Pegis\Delete.cshtml.g.cs
 C:\TFG\CinemasRafa\CinemasRafa\obj\Debug\net5.0\Razor\Views\Pegis\Details.cshtml.g.cs
 C:\TFG\CinemasRafa\CinemasRafa\obj\Debug\net5.0\Razor\Views\Pegis\Edit.cshtml.g.cs
 C:\TFG\CinemasRafa\CinemasRafa\obj\Debug\net5.0\Razor\Views\Pegis\Index.cshtml.g.cs

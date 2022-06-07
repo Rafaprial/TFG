@@ -215,6 +215,33 @@ namespace CinemasRafa.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categoria");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Ficcion"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Accion"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Romance"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Thriller"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Terror"
+                        });
                 });
 
             modelBuilder.Entity("CinemasRafa.Models.CuentaUsuario", b =>
@@ -479,6 +506,38 @@ namespace CinemasRafa.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Pegi");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            EdadMin = "Pegi 3",
+                            PegiEdad = 3
+                        },
+                        new
+                        {
+                            Id = 5,
+                            EdadMin = "Pegi 7",
+                            PegiEdad = 7
+                        },
+                        new
+                        {
+                            Id = 2,
+                            EdadMin = "Pegi 12",
+                            PegiEdad = 12
+                        },
+                        new
+                        {
+                            Id = 3,
+                            EdadMin = "Pegi 16",
+                            PegiEdad = 16
+                        },
+                        new
+                        {
+                            Id = 4,
+                            EdadMin = "Pegi 18",
+                            PegiEdad = 18
+                        });
                 });
 
             modelBuilder.Entity("CinemasRafa.Models.Peliculas", b =>
@@ -525,6 +584,22 @@ namespace CinemasRafa.Migrations
                     b.HasIndex("PegiId");
 
                     b.ToTable("Peliculas");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoriaId = 1,
+                            Descripcion = "Por primera vez en la historia cinematográfica de Spider-Man, nuestro héroe, vecino y amigo es desenmascarado, y por tanto, ya no es capaz de separar su vida normal de los enormes riesgos que conlleva ser un superhéroe. Cuando pide ayuda al Doctor Strange, los riesgos pasan a ser aún más peligrosos, obligándole a descubrir lo que realmente significa ser él. Secuela de 'Spider-Man: Far From Home'. ",
+                            Director = "Jon Watts",
+                            Duracion = 148,
+                            FechaEstreno = new DateTime(2022, 6, 7, 0, 0, 0, 0, DateTimeKind.Local),
+                            ImageUrl = "https://es.web.img2.acsta.net/r_1920_1080/pictures/21/12/01/12/07/0243323.jpg",
+                            Nombre = "Spider-Man: No Way Home",
+                            PegiId = 2,
+                            UrlDescarga = "https://es.web.img3.acsta.net/c_200_200/pictures/15/11/24/16/53/595385.jpg",
+                            Valoracion = 5.0
+                        });
                 });
 
             modelBuilder.Entity("CinemasRafa.Models.Role", b =>
