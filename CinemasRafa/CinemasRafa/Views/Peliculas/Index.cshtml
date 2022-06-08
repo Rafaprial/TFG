@@ -7,11 +7,11 @@
 
 }
 
-Peliculas
-<div class="row pb-3">
+<h1 class="text-center fw-bold">Peliculas</h1>
+<div class="row pb-3 mt-4">
     <form asp-controller="Peliculas" asp-action="Index">
         <p>
-            Titulo: <input type="text" name="SearchString" />
+            <input placeholder="Buscar..." type="text" name="SearchString" />
             <input type="submit" value="Buscar" />
         </p>
     </form>

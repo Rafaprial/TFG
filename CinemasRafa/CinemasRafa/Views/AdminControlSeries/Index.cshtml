@@ -3,9 +3,9 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<p>
-    <a asp-controller="Series" asp-action="Create">Create New</a>
+<h1>Control Series</h1>
+<p class="mt-3">
+    <a class="btn btn-primary" asp-controller="Series" asp-action="Create">Crear Nuevo</a>
 </p>
 <table class="table">
     <thead>
@@ -48,9 +48,9 @@
                 @Html.DisplayNameFor(modelItem => item.Temporada)
             </td>
             <td>
-                <a asp-controller="Series" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-controller="Series" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-controller="Series" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a class="btn btn-warning" asp-controller="Series" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                <a class="btn btn-secondary" asp-controller="Series" asp-action="Details" asp-route-id="@item.Id">Info</a>
+                <a class="btn btn-danger" asp-controller="Series" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
             </td>
         </tr>
 }
