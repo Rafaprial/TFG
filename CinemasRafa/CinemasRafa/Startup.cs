@@ -27,12 +27,16 @@ namespace CinemasRafa
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            //Conexion con la BBDD
+
             services.AddDbContext<ControlContext>(options =>
                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            //Para poder usar las sesiones
-            services.AddSession();
-            //Filtros que estamos empleando
+
+            services.AddSession(options =>
+            {
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+ 
             services.AddScoped<AdminFilter>();
             services.AddScoped<WorkerFilter>();
             services.AddScoped<SessionFilter>();

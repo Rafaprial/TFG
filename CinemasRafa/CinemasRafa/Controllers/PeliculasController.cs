@@ -85,6 +85,7 @@ namespace CinemasRafa.Controllers
             }
             ViewData["CategoriaId"] = new SelectList(_context.Categoria, "Id", "Id", peliculas.CategoriaId);
             ViewData["PegiId"] = new SelectList(_context.Pegi, "Id", "Id", peliculas.PegiId);
+
             return View(peliculas);
         }
 
