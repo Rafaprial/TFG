@@ -13,8 +13,7 @@ using CinemasRafa.Filters;
 
 namespace CinemasRafa.Controllers
 {
-    //[ServiceFilter(typeof(WorkerFilter))]
-    //[ServiceFilter(typeof(RecepcionistFilter))]
+    [ServiceFilter(typeof(WorkerFilter))]
     public class CustomerDTOsController : Controller
     {
         private readonly ControlContext _context;

@@ -1,4 +1,5 @@
 ﻿using CinemasRafa.Data;
+using CinemasRafa.Filters;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace CinemasRafa.Controllers
         }
 
         // GET: Series
+        [ServiceFilter(typeof(WorkerFilter))]
         public async Task<IActionResult> Index()
         {
             var controlContext = _context.Serie.Include(s => s.Categoria).Include(s => s.Pegi);

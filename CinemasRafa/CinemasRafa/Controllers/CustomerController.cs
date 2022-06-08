@@ -12,7 +12,7 @@ using CinemasRafa.Models;
 namespace CinemasRafa.Controllers
 {
     [ServiceFilter(typeof(WorkerFilter))]
-    //[ServiceFilter(typeof(RecepcionistFilter))]
+    
     public class CustomerController : Controller
     {
         private readonly ControlContext _context;

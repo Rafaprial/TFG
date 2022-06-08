@@ -60,7 +60,7 @@ namespace CinemasRafa.Controllers
 
             return View(peliculas);
         }
-        [ServiceFilter(typeof(AdminFilter))]
+        [ServiceFilter(typeof(WorkerFilter))]
 
         // GET: Peliculas/Create
         public IActionResult Create()
@@ -69,7 +69,7 @@ namespace CinemasRafa.Controllers
             ViewData["PegiId"] = new SelectList(_context.Pegi, "Id", "Id");
             return View();
         }
-        [ServiceFilter(typeof(AdminFilter))]
+        [ServiceFilter(typeof(WorkerFilter))]
         // POST: Peliculas/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -87,8 +87,9 @@ namespace CinemasRafa.Controllers
             ViewData["PegiId"] = new SelectList(_context.Pegi, "Id", "Id", peliculas.PegiId);
             return View(peliculas);
         }
-        [ServiceFilter(typeof(AdminFilter))]
+
         // GET: Peliculas/Edit/5
+        [ServiceFilter(typeof(WorkerFilter))]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -105,12 +106,13 @@ namespace CinemasRafa.Controllers
             ViewData["PegiId"] = new SelectList(_context.Pegi, "Id", "Id", peliculas.PegiId);
             return View(peliculas);
         }
-        [ServiceFilter(typeof(AdminFilter))]
+        [ServiceFilter(typeof(WorkerFilter))]
         // POST: Peliculas/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Descripcion,Director,Duracion,FechaEstreno,UrlDescarga,Valoracion,ImageUrl,CategoriaId,PegiId")] Peliculas peliculas)
         {
             if (id != peliculas.Id)
@@ -142,7 +144,7 @@ namespace CinemasRafa.Controllers
             ViewData["PegiId"] = new SelectList(_context.Pegi, "Id", "Id", peliculas.PegiId);
             return View(peliculas);
         }
-        [ServiceFilter(typeof(AdminFilter))]
+        [ServiceFilter(typeof(WorkerFilter))]
         // GET: Peliculas/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -162,7 +164,7 @@ namespace CinemasRafa.Controllers
 
             return View(peliculas);
         }
-        [ServiceFilter(typeof(AdminFilter))]
+        [ServiceFilter(typeof(WorkerFilter))]
         // POST: Peliculas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

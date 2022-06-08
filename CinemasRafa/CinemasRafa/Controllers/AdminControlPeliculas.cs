@@ -19,6 +19,7 @@ namespace CinemasRafa.Controllers
         }
 
         // GET: Peliculas
+        [ServiceFilter(typeof(WorkerFilter))]
         public async Task<IActionResult> Index()
         {
             var controlContext = _context.Peliculas.Include(p => p.Categoria).Include(p => p.Pegi);

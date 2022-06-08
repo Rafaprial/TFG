@@ -13,8 +13,7 @@ using CinemasRafa.Filters;
 
 namespace CinemasRafa.Controllers
 {
-    //[ServiceFilter(typeof(AdminFilter))]
-    //[ServiceFilter(typeof(RecepcionistFilter))] Pensar quien puede crear profesores
+    [ServiceFilter(typeof(AdminFilter))]
     public class WorkerDTOsController : Controller
     {
         private readonly ControlContext _context;

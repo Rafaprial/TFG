@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CinemasRafa.Data;
 using CinemasRafa.Models;
+using CinemasRafa.Filters;
 
 namespace CinemasRafa.Controllers
 {
+    [ServiceFilter(typeof(WorkerFilter))]
     public class PegisController : Controller
     {
         private readonly ControlContext _context;

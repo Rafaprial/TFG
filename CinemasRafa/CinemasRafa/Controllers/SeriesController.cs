@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CinemasRafa.Data;
 using CinemasRafa.Models;
+using CinemasRafa.Filters;
 
 namespace CinemasRafa.Controllers
 {
@@ -60,6 +61,7 @@ namespace CinemasRafa.Controllers
         }
 
         // GET: Series/Create
+        [ServiceFilter(typeof(WorkerFilter))]
         public IActionResult Create()
         {
             ViewData["CategoriaId"] = new SelectList(_context.Categoria, "Id", "Id");
@@ -70,6 +72,7 @@ namespace CinemasRafa.Controllers
         // POST: Series/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [ServiceFilter(typeof(WorkerFilter))]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nombre,Director,Temporada,FechaEstreno,HaTerminado,UrlDescarga,Valoracion,ImageUrl,CategoriaId,PegiId")] Series series)
@@ -86,6 +89,7 @@ namespace CinemasRafa.Controllers
         }
 
         // GET: Series/Edit/5
+        [ServiceFilter(typeof(WorkerFilter))]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -106,6 +110,7 @@ namespace CinemasRafa.Controllers
         // POST: Series/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [ServiceFilter(typeof(WorkerFilter))]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Director,Temporada,FechaEstreno,HaTerminado,UrlDescarga,Valoracion,ImageUrl,CategoriaId,PegiId")] Series series)
@@ -139,6 +144,7 @@ namespace CinemasRafa.Controllers
             ViewData["PegiId"] = new SelectList(_context.Pegi, "Id", "Id", series.PegiId);
             return View(series);
         }
+        [ServiceFilter(typeof(WorkerFilter))]
 
         // GET: Series/Delete/5
         public async Task<IActionResult> Delete(int? id)
@@ -159,7 +165,7 @@ namespace CinemasRafa.Controllers
 
             return View(series);
         }
-
+        [ServiceFilter(typeof(WorkerFilter))]
         // POST: Series/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
