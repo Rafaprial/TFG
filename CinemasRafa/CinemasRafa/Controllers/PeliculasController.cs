@@ -20,13 +20,26 @@ namespace CinemasRafa.Controllers
             _context = context;
         }
 
+
         // GET: Peliculas
-        public async Task<IActionResult> Index()
+/*        public async Task<IActionResult> Index()
         {
             var controlContext = _context.Peliculas.Include(p => p.Categoria).Include(p => p.Pegi);
             return View(await controlContext.ToListAsync());
         }
-        
+*/
+        public async Task<IActionResult> Index(string searchString)
+        {
+            var movies = from m in _context.Peliculas
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                movies = movies.Where(s => s.Nombre.Contains(searchString));
+            }
+            movies.Include(p => p.Categoria).Include(p => p.Pegi);
+            return View(await movies.ToListAsync());
+        }
 
         // GET: Peliculas/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -48,7 +61,7 @@ namespace CinemasRafa.Controllers
             return View(peliculas);
         }
         [ServiceFilter(typeof(AdminFilter))]
-        [ServiceFilter(typeof(WorkerFilter))]
+
         // GET: Peliculas/Create
         public IActionResult Create()
         {

@@ -9,6 +9,12 @@
 
 Series
 <div class="row pb-3">
+    <form asp-controller="Series" asp-action="Index">
+        <p>
+            Titulo: <input type="text" name="SearchString" />
+            <input type="submit" value="Buscar" />
+        </p>
+    </form>
 
 @foreach (var item in Model) {
 	<div class="col-lg-3 col-md-6">
@@ -21,7 +27,7 @@ Series
 						<div class="pl-1">
 							<p class="card-title h5 text-primary">@item.Nombre</p>
 							<p class="card-title text-info">by <b>@item.Director</b></p>
-							<p class="card-tittle text-secondary">Temporada<b>@item.Temporada</b></p>
+							<p class="card-tittle text-secondary">Temporada: <b>@item.Temporada</b></p>
 						</div>
 
 						</div>

@@ -32,6 +32,11 @@ namespace CinemasRafa.Controllers
 
                 if (usuario != null)
                 {
+                    if(usuario.Active == false)
+                    {
+                        TempData["ErrorMessage"] = "El usuario no esta activado.";
+                        return RedirectToAction(nameof(Index));
+                    }
                     HttpContext.Session.SetString("usuario", usuario.ID.ToString());
                     HttpContext.Session.SetString("username", usuario.Username.ToString());
 

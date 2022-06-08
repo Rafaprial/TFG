@@ -601,3 +601,5 @@ D:\TFG_FINAL\CinemasRafa\CinemasRafa\obj\Debug\net5.0\CinemasRafa.genruntimeconf
 D:\TFG_FINAL\CinemasRafa\CinemasRafa\obj\Debug\net5.0\ref\CinemasRafa.dll
 D:\TFG_FINAL\CinemasRafa\CinemasRafa\obj\Debug\net5.0\Razor\Views\AdminControlSeries\Index.cshtml.g.cs
 D:\TFG_FINAL\CinemasRafa\CinemasRafa\obj\Debug\net5.0\Razor\Views\AdminControlPeliculas\Index.cshtml.g.cs
+C:\TFG\CinemasRafa\CinemasRafa\obj\Debug\net5.0\Razor\Views\AdminControlPeliculas\Index.cshtml.g.cs
+C:\TFG\CinemasRafa\CinemasRafa\obj\Debug\net5.0\Razor\Views\AdminControlSeries\Index.cshtml.g.cs

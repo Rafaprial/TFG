@@ -20,11 +20,24 @@ namespace CinemasRafa.Controllers
         }
 
         // GET: Series
-        public async Task<IActionResult> Index()
+        /*        public async Task<IActionResult> Index()
+                {
+                    var controlContext = _context.Serie.Include(s => s.Categoria).Include(s => s.Pegi);
+                    return View(await controlContext.ToListAsync());
+                }*/
+        public async Task<IActionResult> Index(string searchString)
         {
-            var controlContext = _context.Serie.Include(s => s.Categoria).Include(s => s.Pegi);
-            return View(await controlContext.ToListAsync());
+            var serie = from m in _context.Serie
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                serie = serie.Where(s => s.Nombre.Contains(searchString));
+            }
+            serie.Include(p => p.Categoria).Include(p => p.Pegi);
+            return View(await serie.ToListAsync());
         }
+
 
         // GET: Series/Details/5
         public async Task<IActionResult> Details(int? id)

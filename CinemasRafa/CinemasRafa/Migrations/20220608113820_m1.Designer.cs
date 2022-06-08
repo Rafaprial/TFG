@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CinemasRafa.Migrations
 {
     [DbContext(typeof(ControlContext))]
-    [Migration("20220607202021_m1")]
+    [Migration("20220608113820_m1")]
     partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -609,11 +609,67 @@ namespace CinemasRafa.Migrations
                             Descripcion = "Por primera vez en la historia cinematográfica de Spider-Man, nuestro héroe, vecino y amigo es desenmascarado, y por tanto, ya no es capaz de separar su vida normal de los enormes riesgos que conlleva ser un superhéroe. Cuando pide ayuda al Doctor Strange, los riesgos pasan a ser aún más peligrosos, obligándole a descubrir lo que realmente significa ser él. Secuela de 'Spider-Man: Far From Home'. ",
                             Director = "Jon Watts",
                             Duracion = 148,
-                            FechaEstreno = new DateTime(2022, 6, 7, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaEstreno = new DateTime(2022, 6, 8, 0, 0, 0, 0, DateTimeKind.Local),
                             ImageUrl = "https://es.web.img2.acsta.net/r_1920_1080/pictures/21/12/01/12/07/0243323.jpg",
                             Nombre = "Spider-Man: No Way Home",
                             PegiId = 2,
                             UrlDescarga = "https://es.web.img3.acsta.net/c_200_200/pictures/15/11/24/16/53/595385.jpg",
+                            Valoracion = 5.0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoriaId = 1,
+                            Descripcion = "Tras la muerte de sus padres, Peter Parker, un tímido estudiante, vive con su tía May y su tío Ben. Precisamente debido a su retraimiento no es un chico muy popular en el instituto. Un día le muerde una araña que ha sido modificada genéticamente; a la mañana siguiente, descubre estupefacto que posee la fuerza y la agilidad de ese insecto. Las aventuras del hombre araña se basan en el famoso cómic de Stan Lee y Steve Ditko.",
+                            Director = "Sam Raimi",
+                            Duracion = 121,
+                            FechaEstreno = new DateTime(2022, 6, 8, 0, 0, 0, 0, DateTimeKind.Local),
+                            ImageUrl = "https://es.web.img2.acsta.net/r_1920_1080/medias/nmedia/00/00/00/33/spiderman.jpg",
+                            Nombre = "Spider-Man",
+                            PegiId = 3,
+                            UrlDescarga = "https://es.web.img2.acsta.net/r_1920_1080/medias/nmedia/00/00/00/33/spiderman.jpg",
+                            Valoracion = 5.0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoriaId = 2,
+                            Descripcion = "Un joven hastiado de su gris y monótona vida lucha contra el insomnio. En un viaje en avión conoce a un carismático vendedor de jabón que sostiene una teoría muy particular: el perfeccionismo es cosa de gentes débiles; sólo la autodestrucción hace que la vida merezca la pena. Ambos deciden entonces fundar un club secreto de lucha, donde poder descargar sus frustaciones y su ira, que tendrá un éxito arrollador.",
+                            Director = "David Fincher",
+                            Duracion = 139,
+                            FechaEstreno = new DateTime(2022, 6, 8, 0, 0, 0, 0, DateTimeKind.Local),
+                            ImageUrl = "https://es.web.img3.acsta.net/r_1920_1080/img/23/b7/23b757ce995171ae05ba7449c67a47dc.jpg",
+                            Nombre = "Club de la lucha",
+                            PegiId = 5,
+                            UrlDescarga = "https://es.web.img3.acsta.net/c_200_200/pictures/15/11/24/16/53/595385.jpg",
+                            Valoracion = 5.0
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoriaId = 1,
+                            Descripcion = "Han pasado dos años desde que el tranquilo Peter Parker dejó a Mary Jane Watson, su gran amor, y decidió seguir asumiendo sus responsabilidades como Spider-Man. Peter debe afrontar nuevos desafíos mientras lucha contra el don y la maldición de sus poderes equilibrando sus dos identidades: el escurridizo superhéroe Spider-Man y el estudiante universitario. Las relaciones con las personas que más aprecia están ahora en peligro de ser descubiertas con la aparición del poderoso villano de múltiples tentáculos Doctor Octopus, Doc Ock.",
+                            Director = "Sam Raimi",
+                            Duracion = 127,
+                            FechaEstreno = new DateTime(2022, 6, 8, 0, 0, 0, 0, DateTimeKind.Local),
+                            ImageUrl = "https://es.web.img3.acsta.net/r_1920_1080/medias/nmedia/18/35/16/02/18380826.jpg",
+                            Nombre = "Spider-Man 2",
+                            PegiId = 4,
+                            UrlDescarga = "https://es.web.img3.acsta.net/r_1920_1080/medias/nmedia/18/35/16/02/18380826.jpg",
+                            Valoracion = 5.0
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoriaId = 1,
+                            Descripcion = "Basada en el famoso cuento Aladino y la lámpara maravillosa, la trama se sitúa en el exótico paisaje del mítico reino árabe de Agrabah. Aladdin es un ingenioso joven que, a pesar de vivir en un estado de extrema pobreza, sueña con casarse con la bella hija del sultán, la princesa Yasmin. El destino interviene cuando el astuto visir del Sultán, Yafar, recluta a Aladdin para que le ayude a recuperar una lámpara mágica de las profundidades de la Cueva de las Maravillas. El joven encuentra la lámpara, en la que vive un genio que concede tres deseos a quien lo libere.",
+                            Director = "John Musker, Ron Clements",
+                            Duracion = 87,
+                            FechaEstreno = new DateTime(2022, 6, 8, 0, 0, 0, 0, DateTimeKind.Local),
+                            ImageUrl = "https://es.web.img3.acsta.net/r_1920_1080/img/6c/02/6c022db26a46682b554a0e43a896de17.jpg",
+                            Nombre = "Aladdin",
+                            PegiId = 1,
+                            UrlDescarga = "https://es.web.img3.acsta.net/r_1920_1080/img/6c/02/6c022db26a46682b554a0e43a896de17.jpg",
                             Valoracion = 5.0
                         });
                 });
@@ -875,13 +931,43 @@ namespace CinemasRafa.Migrations
                             CategoriaId = 1,
                             Descripcion = "La serie sigue las múltiples tramas de la saga Canción de hielo y fuego.2​ Comienza cuando el Rey Robert Baratheon (Mark Addy) le pide a su viejo amigo Ned Stark (Sean Bean) que realice la función de nuevo consejero real (cargo conocido como la Mano del Rey). La esposa de Ned, Catelyn (Michelle Fairley) recibe una carta de su hermana, Lysa (Kate Dickie) que le da razones para creer que la Casa Lannister, a la cual pertenece Cersei, la esposa del rey, está involucrada en la muerte de la anterior Mano del Rey. Ned debe viajar al sur con el Rey para descubrir el asesino de la Mano del Rey muerto, Jon Arryn (John Standing) y a la misma vez proteger a su familia de los Lannister. Mientras descubre las razones detrás de la muerte de Jon, desentierra el oscuro secreto concerniente a los Lannister que el propio Arryn murió tratando de revelar. ",
                             Director = "David Benioff",
-                            FechaEstreno = new DateTime(2022, 6, 7, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaEstreno = new DateTime(2022, 6, 8, 0, 0, 0, 0, DateTimeKind.Local),
                             HaTerminado = true,
                             ImageUrl = "https://m.media-amazon.com/images/I/91kI5AXwz9L._SY445_.jpg",
                             Nombre = "Juego de tronos",
                             PegiId = 2,
                             Temporada = 1,
                             UrlDescarga = "https://m.media-amazon.com/images/I/91kI5AXwz9L._SY445_.jpg",
+                            Valoracion = 5.0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoriaId = 1,
+                            Descripcion = "Walter White decide entrar en el mundo de las drogas ilegales después de que le diagnosticaran cáncer de pulmón. Al ser profesor de química, utiliza sus conocimientos y habilidades para elaborar una metanfetamina junto a un antiguo alumno, Jesse Pinkman (Aaron Paul). Durante sus primeros días, como productores de droga, tienen varios problemas con los distribuidores locales. Además, empiezan a ser famosos, gracias a la droga que producen, y amplian territorio. Walt se crea un apodo, Heisenberg, para darse a conocer en su segunda vida.",
+                            Director = "Vince Gilligan",
+                            FechaEstreno = new DateTime(2022, 6, 8, 0, 0, 0, 0, DateTimeKind.Local),
+                            HaTerminado = true,
+                            ImageUrl = "https://m.media-amazon.com/images/I/91kI5AXwz9L._SY445_.jpg",
+                            Nombre = "Breaking Bad",
+                            PegiId = 2,
+                            Temporada = 1,
+                            UrlDescarga = "https://m.media-amazon.com/images/I/91kI5AXwz9L._SY445_.jpg",
+                            Valoracion = 5.0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoriaId = 1,
+                            Descripcion = "Walter decide seguir con el negocio a pesar de todos los conflictos que conlleva. Además, se ve obligado a contratar los servicios de un abogado deshonesto, Saul Goodman, para ayudar al traficante Badger después que fuese arrestado por la policía. Combo, otro de los distribuidores, es asesinado por una banda rival. Mientras todo esto sucede, Jesse comienza una relación con Jane, una joven que se está recuperando de su adicción a las drogas, y Walt encuentra un nuevo socio llamado Gus. Al final de la temporada, la esposa de Walter comienza a sospechar sobre la segunda vida de su marido.",
+                            Director = "Vince Gilligan",
+                            FechaEstreno = new DateTime(2022, 6, 8, 0, 0, 0, 0, DateTimeKind.Local),
+                            HaTerminado = true,
+                            ImageUrl = "https://es.web.img3.acsta.net/r_1920_1080/pictures/18/07/23/11/26/1597342.jpg",
+                            Nombre = "Breaking Bad",
+                            PegiId = 2,
+                            Temporada = 2,
+                            UrlDescarga = "https://es.web.img3.acsta.net/r_1920_1080/pictures/18/07/23/11/26/1597342.jpg",
                             Valoracion = 5.0
                         });
                 });

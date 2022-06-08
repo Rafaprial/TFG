@@ -215,7 +215,64 @@ namespace CinemasRafa.Data
                 ImageUrl = "https://es.web.img2.acsta.net/r_1920_1080/pictures/21/12/01/12/07/0243323.jpg",
                 CategoriaId = 1,
                 PegiId = 2
-            });
+            },
+            new Peliculas
+            {
+                Id = 2,
+                Nombre = "Spider-Man",
+                Descripcion = "Tras la muerte de sus padres, Peter Parker, un tímido estudiante, vive con su tía May y su tío Ben. Precisamente debido a su retraimiento no es un chico muy popular en el instituto. Un día le muerde una araña que ha sido modificada genéticamente; a la mañana siguiente, descubre estupefacto que posee la fuerza y la agilidad de ese insecto. Las aventuras del hombre araña se basan en el famoso cómic de Stan Lee y Steve Ditko.",
+                Director = "Sam Raimi",
+                Duracion = 121,
+                FechaEstreno = System.DateTime.Today,
+                UrlDescarga = "https://es.web.img2.acsta.net/r_1920_1080/medias/nmedia/00/00/00/33/spiderman.jpg",
+                Valoracion = 5,
+                ImageUrl = "https://es.web.img2.acsta.net/r_1920_1080/medias/nmedia/00/00/00/33/spiderman.jpg",
+                CategoriaId = 1,
+                PegiId = 3
+            },
+            new Peliculas
+            {
+                Id = 3,
+                Nombre = "Club de la lucha",
+                Descripcion = "Un joven hastiado de su gris y monótona vida lucha contra el insomnio. En un viaje en avión conoce a un carismático vendedor de jabón que sostiene una teoría muy particular: el perfeccionismo es cosa de gentes débiles; sólo la autodestrucción hace que la vida merezca la pena. Ambos deciden entonces fundar un club secreto de lucha, donde poder descargar sus frustaciones y su ira, que tendrá un éxito arrollador.",
+                Director = "David Fincher",
+                Duracion = 139,
+                FechaEstreno = System.DateTime.Today,
+                UrlDescarga = "https://es.web.img3.acsta.net/c_200_200/pictures/15/11/24/16/53/595385.jpg",
+                Valoracion = 5,
+                ImageUrl = "https://es.web.img3.acsta.net/r_1920_1080/img/23/b7/23b757ce995171ae05ba7449c67a47dc.jpg",
+                CategoriaId = 2,
+                PegiId = 5
+            },
+            new Peliculas
+            {
+                Id = 4,
+                Nombre = "Spider-Man 2",
+                Descripcion = "Han pasado dos años desde que el tranquilo Peter Parker dejó a Mary Jane Watson, su gran amor, y decidió seguir asumiendo sus responsabilidades como Spider-Man. Peter debe afrontar nuevos desafíos mientras lucha contra el don y la maldición de sus poderes equilibrando sus dos identidades: el escurridizo superhéroe Spider-Man y el estudiante universitario. Las relaciones con las personas que más aprecia están ahora en peligro de ser descubiertas con la aparición del poderoso villano de múltiples tentáculos Doctor Octopus, Doc Ock.",
+                Director = "Sam Raimi",
+                Duracion = 127,
+                FechaEstreno = System.DateTime.Today,
+                UrlDescarga = "https://es.web.img3.acsta.net/r_1920_1080/medias/nmedia/18/35/16/02/18380826.jpg",
+                Valoracion = 5,
+                ImageUrl = "https://es.web.img3.acsta.net/r_1920_1080/medias/nmedia/18/35/16/02/18380826.jpg",
+                CategoriaId = 1,
+                PegiId = 4
+            },
+            new Peliculas
+            {
+                Id = 5,
+                Nombre = "Aladdin",
+                Descripcion = "Basada en el famoso cuento Aladino y la lámpara maravillosa, la trama se sitúa en el exótico paisaje del mítico reino árabe de Agrabah. Aladdin es un ingenioso joven que, a pesar de vivir en un estado de extrema pobreza, sueña con casarse con la bella hija del sultán, la princesa Yasmin. El destino interviene cuando el astuto visir del Sultán, Yafar, recluta a Aladdin para que le ayude a recuperar una lámpara mágica de las profundidades de la Cueva de las Maravillas. El joven encuentra la lámpara, en la que vive un genio que concede tres deseos a quien lo libere.",
+                Director = "John Musker, Ron Clements",
+                Duracion = 87,
+                FechaEstreno = System.DateTime.Today,
+                UrlDescarga = "https://es.web.img3.acsta.net/r_1920_1080/img/6c/02/6c022db26a46682b554a0e43a896de17.jpg",
+                Valoracion = 5,
+                ImageUrl = "https://es.web.img3.acsta.net/r_1920_1080/img/6c/02/6c022db26a46682b554a0e43a896de17.jpg",
+                CategoriaId = 1,
+                PegiId = 1
+            }
+            );
             modelBuilder.Entity<Series>().HasData(
             new Series
             {
@@ -231,7 +288,40 @@ namespace CinemasRafa.Data
                 CategoriaId = 1,
                 PegiId = 2,
                 HaTerminado = true,
-            });
+            },
+            new Series
+            {
+                Id = 2,
+                Nombre = "Breaking Bad",
+                Descripcion = "Walter White decide entrar en el mundo de las drogas ilegales después de que le diagnosticaran cáncer de pulmón. Al ser profesor de química, utiliza sus conocimientos y habilidades para elaborar una metanfetamina junto a un antiguo alumno, Jesse Pinkman (Aaron Paul). Durante sus primeros días, como productores de droga, tienen varios problemas con los distribuidores locales. Además, empiezan a ser famosos, gracias a la droga que producen, y amplian territorio. Walt se crea un apodo, Heisenberg, para darse a conocer en su segunda vida.",
+                Director = "Vince Gilligan",
+                Temporada = 1,
+                FechaEstreno = System.DateTime.Today,
+                UrlDescarga = "https://m.media-amazon.com/images/I/91kI5AXwz9L._SY445_.jpg",
+                Valoracion = 5,
+                ImageUrl = "https://es.web.img2.acsta.net/r_1920_1080/pictures/18/07/23/11/26/1237965.jpg",
+                CategoriaId = 1,
+                PegiId = 2,
+                HaTerminado = true,
+            },
+            new Series
+            {
+                Id = 3,
+                Nombre = "Breaking Bad",
+                Descripcion = "Walter decide seguir con el negocio a pesar de todos los conflictos que conlleva. Además, se ve obligado a contratar los servicios de un abogado deshonesto, Saul Goodman, para ayudar al traficante Badger después que fuese arrestado por la policía. Combo, otro de los distribuidores, es asesinado por una banda rival. Mientras todo esto sucede, Jesse comienza una relación con Jane, una joven que se está recuperando de su adicción a las drogas, y Walt encuentra un nuevo socio llamado Gus. Al final de la temporada, la esposa de Walter comienza a sospechar sobre la segunda vida de su marido.",
+                Director = "Vince Gilligan",
+                Temporada = 2,
+                FechaEstreno = System.DateTime.Today,
+                UrlDescarga = "https://es.web.img3.acsta.net/r_1920_1080/pictures/18/07/23/11/26/1597342.jpg",
+                Valoracion = 5,
+                ImageUrl = "https://es.web.img3.acsta.net/r_1920_1080/pictures/18/07/23/11/26/1597342.jpg",
+                CategoriaId = 1,
+                PegiId = 2,
+                HaTerminado = true,
+            }
+
+            );
+            
             modelBuilder.Entity<Pegi>().HasData(
             new Pegi
             {

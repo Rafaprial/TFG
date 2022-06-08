@@ -16,7 +16,7 @@ namespace CinemasRafa
 {
     public class Startup
     {
-        //https://docs.microsoft.com/es-es/aspnet/core/tutorials/first-mvc-app/search?view=aspnetcore-6.0
+        
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
