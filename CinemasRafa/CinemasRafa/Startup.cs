@@ -29,7 +29,14 @@ namespace CinemasRafa
             services.AddControllersWithViews();
 
             services.AddDbContext<ControlContext>(options =>
-               options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+               options.UseMySql(Configuration.GetConnectionString("miConexion"),
+               ServerVersion.AutoDetect(Configuration.GetConnectionString("miConexion")),
+                   builder =>
+                   {
+                       builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null);
+                   }));
+
+
 
             services.AddSession(options =>
             {
@@ -64,7 +71,7 @@ namespace CinemasRafa
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "default",
+                    name: "",
                     pattern: "{controller=Login}/{action=Index}/{id?}");
             });
         }

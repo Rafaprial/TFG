@@ -11,7 +11,7 @@
                 Login
             </div>
             <div class="card-body">
-                <img style=" display:block; margin-left: auto; margin-right: auto;" src="~/lib/Screenshot 2022-06-08 194542.png"/>
+                <img style=" display:block; margin-left: auto; margin-right: auto; border-radius:15px;" src="~/lib/Screenshot 2022-06-08 194542.png"/>
                 <form class="login-form" method="get" asp-action="Login">
                     <div class="form-group">
                         <label class="text-uppercase">Username</label>
@@ -26,20 +26,11 @@
                     </div>
                     </br>
                     <div class="form-group">
-                        <input type="submit" name="submit" class="btn btn-primary" value="Login"/>
+                        <input type="submit" name="submit" class="btn btn-success" value="Login"/>
+                        <a href="CustomerDTOs/Create" class="btn ml-2 btn-secondary">Registrarse</a>
                     </div>
-                    <div class="container-fluid">
-
-                        </br>
-                        <div style="display: flex">
-                            
-                            <a href="CustomerDTOs/Create">Registrarse</a>
-                        </div>
-                    </div>
+ 
                     </br>
-                    <div>
-                        <a href="Recuperaciones">¿Has olvidado la contrasña?</a>
-                    </div>
 
                     <div style="color: red">
                     @if (TempData["errorMessage"] != null)

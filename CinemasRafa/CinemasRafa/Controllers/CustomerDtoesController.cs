@@ -56,7 +56,7 @@ namespace CinemasRafa.Controllers
                 _context.Add(Customer);
 
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Login");
             }
 
             return View(CustomerDto);

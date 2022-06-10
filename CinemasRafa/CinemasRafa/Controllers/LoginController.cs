@@ -34,7 +34,7 @@ namespace CinemasRafa.Controllers
                 {
                     if(usuario.Active == false)
                     {
-                        TempData["ErrorMessage"] = "El usuario no esta activado.";
+                        TempData["ErrorMessage"] = "Su cuenta ha sido suspendida.";
                         return RedirectToAction(nameof(Index));
                     }
                     HttpContext.Session.SetString("usuario", usuario.ID.ToString());
@@ -47,7 +47,7 @@ namespace CinemasRafa.Controllers
                 }
                 else
                 {
-                    TempData["ErrorMessage"] = "El usuario y/o la contraseña son incorrectas.";
+                    TempData["ErrorMessage"] = "Error en login. Error en usuario o contraseña.";
                     return RedirectToAction(nameof(Index));
                 }
 

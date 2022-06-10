@@ -65,8 +65,8 @@ namespace CinemasRafa.Controllers
         // GET: Peliculas/Create
         public IActionResult Create()
         {
-            ViewData["CategoriaId"] = new SelectList(_context.Categoria, "Id", "Id");
-            ViewData["PegiId"] = new SelectList(_context.Pegi, "Id", "Id");
+            ViewData["CategoriaId"] = new SelectList(_context.Categoria, "Id", "Name");
+            ViewData["PegiId"] = new SelectList(_context.Pegi, "Id", "EdadMin");
             return View();
         }
         [ServiceFilter(typeof(WorkerFilter))]
@@ -83,8 +83,8 @@ namespace CinemasRafa.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoriaId"] = new SelectList(_context.Categoria, "Id", "Id", peliculas.CategoriaId);
-            ViewData["PegiId"] = new SelectList(_context.Pegi, "Id", "Id", peliculas.PegiId);
+            ViewData["CategoriaId"] = new SelectList(_context.Categoria, "Id", "Name", peliculas.CategoriaId);
+            ViewData["PegiId"] = new SelectList(_context.Pegi, "Id", "EdadMin", peliculas.PegiId);
 
             return View(peliculas);
         }
