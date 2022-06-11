@@ -1,4 +1,5 @@
 ﻿@using CinemasRafa.Util
+@using Microsoft.AspNetCore.Http
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,38 +11,37 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
+
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <img src="~/lib/Screenshot 2022-06-08 194542.png" style="height:60px; border-radius:20px;" class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"></img>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        @if (Utils.Menus.Count == 0)
+                        @if (Context.Session.GetString("labels") != null && Context.Session.GetString("controllers") != null && Context.Session.GetString("actions") != null)
+                        {
+                            string[] controllers = Context.Session.GetString("controllers").Split(',');
+                            string[] labels = Context.Session.GetString("labels").Split(',');
+                            string[] actions = Context.Session.GetString("actions").Split(',');
+                            @for (int i = 0; i < controllers.Count(); i++)
+                            {
+                                if( i < controllers.Count() - 1) {
+                                    <li class="nav-item">
+                                        <a class="nav-link " asp-area="" asp-controller="@controllers[i]" asp-action="@actions[i]">@labels[i]</a>
+                                    </li>
+                                }
+
+                            }
+
+                            <li class="nav-item ms-auto d-flex flex-row">
+                                <a class="text-light btn btn-danger" asp-area="" asp-controller="Login" asp-action="Logout">Logout</a>
+                            </li>
+
+                        }
+                        else
                         {
                             <li class="nav-item">
                                 <a class="nav-link " asp-area="" asp-controller="Login" asp-action="Index">Login</a>
-                            </li>
-                        }
-                        @foreach (Menu menu in Utils.Menus)
-                        {
-                            if (menu.ID > 11)
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link " asp-area="" asp-controller="@menu.Controller" asp-action="@menu.Action">@menu.Label</a>
-                                </li>
-                            }
-                            else
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link " asp-area="" asp-controller="@menu.Controller" asp-action="@menu.Action">@menu.Label</a>
-                                </li>
-                            }
-
-                        }
-                        @if (Utils.Menus.Count > 0)
-                        {
-                            <li class="nav-item ms-auto d-flex flex-row">
-                                <a class="text-light btn btn-danger" asp-area="" asp-controller="Login" asp-action="Logout">Logout</a>
                             </li>
                         }
                     </ul>

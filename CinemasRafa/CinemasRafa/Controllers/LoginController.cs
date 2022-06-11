@@ -44,6 +44,20 @@ namespace CinemasRafa.Controllers
                     HttpContext.Session.SetString("rol", rol.RoleName.ToString());
 
                     Utils.Menus = _context.RoleHasMenu.Include(m => m.Menu).Where(m => m.RoleID == usuario.RoleID).Select(m => m.Menu).ToList();
+                    string labels = string.Empty;
+                    string controllers = string.Empty;
+                    string actions = string.Empty;
+                    foreach(Menu menu in Utils.Menus)
+                    {
+                        labels += menu.Label + ",";
+                        controllers += menu.Controller + ",";
+                        actions += menu.Action + ",";
+
+                    }
+                    HttpContext.Session.SetString("labels", labels);
+                    HttpContext.Session.SetString("controllers", controllers);
+                    HttpContext.Session.SetString("actions", actions);
+
                 }
                 else
                 {
@@ -63,9 +77,7 @@ namespace CinemasRafa.Controllers
 
         public IActionResult Logout()
         {
-            HttpContext.Session.Remove("usuario");
-            HttpContext.Session.Remove("username");
-            HttpContext.Session.Remove("rol");
+            HttpContext.Session.Clear();
 
             //Session.Clear
 
